@@ -1,11 +1,13 @@
-// 神戸市のマーク
 function setup(){
-  createCanvas(200, 200);
-  background(255);
-
-  noFill();
-  strokeWeight(25);
-  strokeCap(SQUARE);
-  arc(100 + 25, 100, 100, 100, QUARTER_PI * 3, QUARTER_PI * 3 + PI);
-  // BLANK[1] 空欄を埋めて神戸市のロゴマークを完成させよう
+  createCanvas(100,100);
+  for(let i=0; i<10; i++){
+    let size=(i+1)*10;
+    noFill();
+    if(i<5){
+    stroke(0,0,255);
+    }else{
+    stroke(255,0,0);
+    }
+    ellipse(50,50,size,size);
+  }
 }
