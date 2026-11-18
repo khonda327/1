@@ -25,8 +25,32 @@ function draw(){
   rect(0, groundY, width, height - groundY);
 
   // BLANK[1] キャラクターの左右移動
+vx = 0;
 
+  if (keyIsDown(LEFT_ARROW)) {
+    vx = -5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    vx = 5;
+  }
+
+  // Shiftキーを押しながら移動すると速度アップ
+  if (keyIsDown(SHIFT)) {
+    vx *= 2;
+  }
   // BLANK[2] 重力とジャンプ
+  vy += g;
+
+  // 地面にいるときだけジャンプできる
+  if (y >= groundY - size / 2) {
+    y = groundY - size / 2;
+    vy = 0;
+
+    if (keyIsDown(UP_ARROW)&&y>=groundY-size/2) {
+      vy = -20;
+    }
+  } 
 
   // 速くなりすぎないように制限
   vx = constrain(vx, -20, 20);
